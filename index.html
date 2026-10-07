@@ -1,112 +1,157 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Excretion Quest — Journey Inside the Human Body</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#246BFE">
+<title>Excretion Quest SaaS — Chibi Science Adventure</title>
 <style>
-:root{--bg:#07131b;--panel:#0d2029;--panel2:#102b35;--line:#254b56;--text:#edf9f5;--muted:#9ebbb8;--accent:#55e0b2;--gold:#f4d06f;--danger:#ff7d7d}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 0%,#123642 0,#07131b 42%,#040a0e 100%);color:var(--text);font:15px Inter,system-ui,Arial,sans-serif}.app{max-width:1180px;margin:auto;padding:18px}.top{display:flex;justify-content:space-between;gap:18px;align-items:center}.brand h1{margin:0;font-size:clamp(24px,4vw,40px)}.brand p{color:var(--muted);margin:6px 0}.hud{display:flex;gap:10px;flex-wrap:wrap}.pill{background:#0c1d25;border:1px solid var(--line);padding:9px 12px;border-radius:999px}.nav{display:flex;gap:8px;overflow:auto;margin:18px 0}.nav button,.btn{border:1px solid var(--line);background:#102b35;color:var(--text);padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700}.nav button.active,.btn.primary{background:var(--accent);color:#052119;border-color:var(--accent)}.view{display:none}.view.active{display:block}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{background:linear-gradient(145deg,#0d2029,#091920);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 12px 30px #0005}.muted{color:var(--muted);line-height:1.65}.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:15px;align-items:stretch}.heroMain{min-height:360px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(circle at 70% 40%,#1c5b5a55,transparent 45%),linear-gradient(145deg,#102c36,#08161d)}.heroMain h2{font-size:clamp(30px,5vw,58px);margin:5px 0}.mission{color:var(--gold);font-weight:800;letter-spacing:.08em;text-transform:uppercase}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.scene{position:relative;min-height:330px;overflow:hidden;background:radial-gradient(circle at 50% 20%,#204d55,#08131a 65%);border:1px solid var(--line);border-radius:18px}.guide{position:absolute;right:25px;bottom:15px;width:145px;height:250px}.guide .head{position:absolute;top:5px;left:34px;width:78px;height:78px;border-radius:50%;background:#f0d1bd;border:7px solid #f4f1e9;box-shadow:0 0 0 2px #d9d1c7}.guide .hijab{position:absolute;top:-8px;left:21px;width:105px;height:120px;border-radius:55px 55px 35px 35px;background:#314f52}.guide .head{z-index:2}.guide .hijab{z-index:1}.guide .coat{position:absolute;top:82px;left:15px;width:115px;height:150px;border-radius:38px 38px 10px 10px;background:#f7f8f5;border:2px solid #d6e0dc}.guide .screen{position:absolute;top:116px;left:50px;width:42px;height:60px;background:#17383d;border:2px solid var(--accent);border-radius:6px;z-index:3}.guide .screen:after{content:"✦";color:var(--accent);display:grid;place-items:center;height:100%;font-size:22px}.faceless{position:absolute;z-index:5;top:30px;left:0;width:100%;text-align:center;font-size:11px;color:#b7d2cf}.bodyAvatar{position:absolute;left:35px;bottom:15px;width:150px;height:285px}.bodyAvatar .bodyHead{position:absolute;left:43px;top:0;width:64px;height:64px;border-radius:50%;background:#dcae95}.bodyAvatar .torso{position:absolute;left:25px;top:58px;width:100px;height:135px;border-radius:35px 35px 15px 15px;background:#dce7e4}.bodyAvatar .arm{position:absolute;top:68px;width:30px;height:130px;border-radius:20px;background:#dcae95}.bodyAvatar .a1{left:0;transform:rotate(12deg)}.bodyAvatar .a2{right:0;transform:rotate(-12deg)}.bodyAvatar .leg{position:absolute;top:185px;width:35px;height:100px;border-radius:18px;background:#263d44}.bodyAvatar .l1{left:36px}.bodyAvatar .l2{left:78px}.pulse{position:absolute;left:48%;top:45%;font-size:35px;animation:pulse 1.3s infinite}@keyframes pulse{50%{transform:scale(1.35);opacity:.55}}.arenaMap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.arena{min-height:110px;cursor:pointer;position:relative}.arena.locked{opacity:.4;filter:grayscale(.7);cursor:not-allowed}.arena.done{border-color:var(--accent)}.arenaNum{font-size:12px;color:var(--accent);font-weight:800}.progress{height:10px;background:#071117;border-radius:99px;overflow:hidden;border:1px solid var(--line)}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#8af5d1);width:0}.modal{position:fixed;inset:0;background:#000b;display:none;place-items:center;padding:15px;z-index:20}.modal.open{display:grid}.modalBox{max-width:780px;width:100%;max-height:90vh;overflow:auto}.choice{width:100%;text-align:left;padding:13px;margin:7px 0;background:#0b2029;border:1px solid var(--line);color:var(--text);border-radius:11px;cursor:pointer}.choice:hover{border-color:var(--accent)}.choice.good{border-color:var(--accent);background:#0d3a30}.choice.bad{border-color:var(--danger);background:#3b1b23}.tag{display:inline-block;padding:5px 9px;border-radius:999px;background:#17343d;color:#bdeee0;font-size:12px;margin:3px}.timeline{display:flex;gap:5px;flex-wrap:wrap}.node{padding:9px 11px;border:1px solid var(--line);border-radius:9px}.node.on{border-color:var(--accent);color:var(--accent)}input{width:100%;padding:11px;border-radius:9px;border:1px solid var(--line);background:#07151c;color:white}.small{font-size:12px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0e292d;border:1px solid var(--accent);padding:12px 18px;border-radius:12px;display:none;z-index:30}.toast.show{display:block}@media(max-width:800px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.arenaMap{grid-template-columns:1fr 1fr}}@media(max-width:520px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
+:root{--bg:#f4f8ff;--surface:#fff;--surface2:#eef5ff;--ink:#14213d;--muted:#65738b;--line:#dbe6f5;--blue:#246BFE;--blue2:#4c8dff;--cyan:#35c7e8;--purple:#7c5cff;--pink:#ff6fae;--green:#22b983;--gold:#ffbd3d;--red:#ef5b68;--shadow:0 18px 45px rgba(36,75,130,.12);--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f7fbff,#eef5ff);color:var(--ink);font:15px Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.app{max-width:1320px;margin:auto;padding:18px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:20px;padding:12px 16px;position:sticky;top:10px;z-index:20;box-shadow:var(--shadow);backdrop-filter:blur(14px)}.brand{display:flex;align-items:center;gap:11px}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#246BFE,#7c5cff);display:grid;place-items:center;color:white;font-size:23px;box-shadow:0 8px 20px rgba(36,107,254,.25)}.brand h1{font-size:17px;margin:0}.brand small{display:block;color:var(--muted);font-size:11px}.tenant{display:flex;align-items:center;gap:8px}.tenant select,.field input,.field select{border:1px solid var(--line);background:white;border-radius:11px;padding:9px 11px;color:var(--ink);outline:none}.hud{display:flex;gap:8px;flex-wrap:wrap}.pill{background:#f1f6ff;border:1px solid var(--line);border-radius:999px;padding:8px 11px;font-weight:800;font-size:12px}.nav{display:flex;gap:8px;overflow:auto;padding:15px 0}.nav button,.btn{border:1px solid var(--line);background:white;color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:800;transition:.18s}.nav button:hover,.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(36,107,254,.1)}.nav button.active,.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}.btn.ghost{background:#edf4ff;color:var(--blue);border-color:#cfe0ff}.btn.success{background:#e8fbf4;color:#087a55;border-color:#b8ecd9}.btn.danger{background:#fff0f1;color:#b23a47;border-color:#ffd0d4}.view{display:none}.view.active{display:block}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;background:linear-gradient(135deg,#e8f2ff 0%,#f8fbff 55%,#eee9ff 100%);border:1px solid var(--line);border-radius:30px;padding:26px;box-shadow:var(--shadow);overflow:hidden}.hero h2{font-size:clamp(34px,5vw,62px);line-height:.95;margin:8px 0 14px;letter-spacing:-2px}.hero p{color:var(--muted);max-width:650px;line-height:1.65}.eyebrow{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-weight:900;color:var(--blue);font-size:11px;letter-spacing:.08em}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.scene{min-height:310px;border-radius:24px;background:radial-gradient(circle at 50% 28%,#d8f4ff 0,#9edcff 20%,#4e83d9 54%,#24356d 100%);position:relative;overflow:hidden;display:grid;place-items:end center}.scene:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 25%,rgba(255,255,255,.75) 0 2px,transparent 3px),radial-gradient(circle at 20% 35%,rgba(255,255,255,.5) 0 2px,transparent 3px);background-size:90px 90px,130px 130px}.scene-label{position:absolute;left:16px;top:15px;background:rgba(255,255,255,.9);border-radius:12px;padding:8px 10px;font-size:11px;font-weight:900;color:#245}.chibi{position:relative;width:170px;height:240px;z-index:2;filter:drop-shadow(0 16px 12px rgba(0,0,0,.16));cursor:pointer;transition:.2s}.chibi:hover{transform:translateY(-7px) rotate(-1deg)}.head{position:absolute;left:43px;top:18px;width:86px;height:88px;border-radius:42% 42% 45% 45%;background:#ffd3ad;border:3px solid #2c3554}.hair{position:absolute;left:39px;top:10px;width:94px;height:63px;background:#533528;border-radius:48% 52% 38% 38%;border:3px solid #2c3554;z-index:2}.hair:after{content:"";position:absolute;right:2px;top:-8px;width:27px;height:27px;border-radius:60% 10% 60% 10%;background:#533528;transform:rotate(25deg)}.eye{position:absolute;top:55px;width:11px;height:15px;background:#2b3552;border-radius:50%;z-index:3}.eye.l{left:62px}.eye.r{left:99px}.smile{position:absolute;top:76px;left:80px;width:15px;height:7px;border-bottom:3px solid #c56f73;border-radius:0 0 20px 20px;z-index:3}.hood{position:absolute;left:27px;top:91px;width:116px;height:35px;background:#fff;border:3px solid #2c3554;border-radius:22px 22px 10px 10px;z-index:1}.body{position:absolute;left:35px;top:112px;width:100px;height:92px;background:linear-gradient(90deg,#fff 0 78%,#d8e6ff 78%);border:3px solid #2c3554;border-radius:22px 22px 15px 15px}.backpack{position:absolute;left:19px;top:127px;width:28px;height:65px;background:#4d6fa8;border:3px solid #2c3554;border-radius:13px;z-index:1}.leg{position:absolute;top:193px;width:31px;height:47px;background:#263754;border:3px solid #2c3554;border-radius:8px 8px 14px 14px}.leg.l{left:49px}.leg.r{left:92px}.shoe{position:absolute;top:226px;width:45px;height:17px;background:#fff;border:3px solid #2c3554;border-radius:12px}.shoe.l{left:40px}.shoe.r{left:87px}.badge{position:absolute;right:3px;top:133px;background:#ffd65a;border:3px solid #2c3554;border-radius:50%;width:23px;height:23px;z-index:3}.guide{position:absolute;right:22px;bottom:0;width:125px;height:235px;filter:drop-shadow(0 12px 10px rgba(0,0,0,.15))}.guide .ghead{position:absolute;left:31px;top:18px;width:64px;height:74px;border-radius:40%;background:#f4caa8;border:3px solid #2c3554}.guide .hijab{position:absolute;left:21px;top:7px;width:85px;height:94px;background:#7186c9;border:3px solid #2c3554;border-radius:48% 48% 40% 40%;z-index:2}.guide .opening{position:absolute;left:37px;top:31px;width:48px;height:48px;border-radius:50%;background:#f4caa8;z-index:3}.guide .gbody{position:absolute;left:25px;top:85px;width:78px;height:116px;background:white;border:3px solid #2c3554;border-radius:17px}.guide .gbody:after{content:"✦";position:absolute;left:8px;top:48px;color:#246BFE;font-size:19px}.guide .tablet{position:absolute;right:0;top:111px;width:45px;height:60px;background:#9eeaff;border:3px solid #2c3554;border-radius:8px;transform:rotate(-8deg);z-index:5}.guide .arm{position:absolute;right:21px;top:95px;width:55px;height:16px;background:#fff;border:3px solid #2c3554;border-radius:10px;transform:rotate(-26deg);z-index:4}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:17px;box-shadow:0 10px 30px rgba(36,75,130,.07)}.metric strong{display:block;font-size:27px}.metric span{color:var(--muted);font-size:12px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:24px 0 12px}.section-head h3{margin:0;font-size:20px}.arena-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.arena{position:relative;min-height:165px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;overflow:hidden;cursor:pointer;transition:.2s}.arena:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.arena.locked{opacity:.55;cursor:not-allowed}.arena .num{font-size:11px;font-weight:900;color:var(--blue)}.arena h4{margin:7px 0}.arena p{font-size:12px;color:var(--muted);line-height:1.5}.arena .icon{position:absolute;right:13px;bottom:10px;font-size:38px}.progress{height:9px;background:#e8eef8;border-radius:999px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:inherit}.two{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.table{width:100%;border-collapse:collapse}.table th,.table td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--line);font-size:13px}.tag{display:inline-flex;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:900}.tag.green{background:#e8fbf4;color:#087a55}.tag.gold{background:#fff6db;color:#9a6b00}.tag.blue{background:#eaf2ff;color:#246BFE}.field{display:grid;gap:6px;margin-bottom:11px}.field label{font-size:11px;font-weight:900;color:var(--muted)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.modal{position:fixed;inset:0;background:rgba(13,30,55,.55);display:none;place-items:center;z-index:50;padding:18px}.modal.show{display:grid}.modal-box{max-width:760px;width:100%;max-height:90vh;overflow:auto;background:white;border-radius:26px;padding:22px;box-shadow:0 30px 90px rgba(0,0,0,.3)}.question{background:#f4f8ff;border:1px solid var(--line);border-radius:18px;padding:16px;margin:14px 0}.options{display:grid;gap:9px}.options button{padding:13px;text-align:left;border:1px solid var(--line);background:white;border-radius:12px;cursor:pointer;font-weight:700}.options button:hover{border-color:var(--blue);background:#f2f7ff}.feedback{margin-top:12px;padding:12px;border-radius:12px;display:none}.feedback.ok{display:block;background:#e9fbf4;color:#087a55}.feedback.no{display:block;background:#fff0f1;color:#a63b48}.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.price{background:white;border:1px solid var(--line);border-radius:22px;padding:20px;position:relative}.price.featured{border:2px solid var(--blue);box-shadow:var(--shadow)}.price .label{position:absolute;right:14px;top:14px;background:#eaf2ff;color:var(--blue);border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900}.price h4{font-size:20px;margin:0 0 8px}.price strong{font-size:30px}.price ul{padding-left:18px;color:var(--muted);line-height:1.9;font-size:13px}.saas-banner{background:linear-gradient(135deg,#14213d,#246BFE);color:white;border-radius:24px;padding:22px;display:flex;justify-content:space-between;gap:20px;align-items:center}.saas-banner p{color:#dbe9ff;margin:5px 0 0}.notice{padding:12px 14px;border-radius:14px;background:#fff8e3;border:1px solid #f4dc94;color:#785800;font-size:12px;line-height:1.55}.footer{padding:25px 4px;color:var(--muted);font-size:11px;text-align:center}@media(max-width:980px){.hero,.two{grid-template-columns:1fr}.cards,.arena-grid{grid-template-columns:repeat(2,1fr)}.price-grid{grid-template-columns:1fr}.topbar{position:relative;top:0}}@media(max-width:560px){.app{padding:10px}.cards,.arena-grid,.grid2{grid-template-columns:1fr}.topbar{align-items:flex-start;flex-direction:column}.hud{width:100%}.hero{padding:18px}.scene{min-height:270px}.saas-banner{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
 <div class="app">
-<header class="top">
-<div class="brand"><h1>🧬 EXCRETION QUEST</h1><p>Journey Inside the Human Body • Sistem Ekskresi</p></div>
-<div class="hud"><span class="pill">⭐ <b id="xp">0</b> XP</span><span class="pill">🏅 <b id="rank">Explorer</b></span><span class="pill">🗺️ <b id="done">0</b>/12 arena</span></div>
+<header class="topbar">
+  <div class="brand"><div class="logo">🧬</div><div><h1>EXCRETION QUEST</h1><small>Chibi Science Adventure · SaaS Edition</small></div></div>
+  <div class="tenant"><span class="pill">🏫 Tenant</span><select id="tenantSelect" onchange="switchTenant(this.value)"><option value="demo">Demo School</option><option value="lab">Science Lab Academy</option></select></div>
+  <div class="hud"><span class="pill">⭐ <b id="xp">0</b> XP</span><span class="pill">🏆 <b id="rank">Nephron Rookie</b></span></div>
 </header>
+
 <nav class="nav" id="nav">
-<button class="active" onclick="show('home',this)">🏠 Mission</button><button onclick="show('map',this)">🗺️ Arena Map</button><button onclick="show('profile',this)">👤 Avatar</button><button onclick="show('data',this)">📊 Progress</button>
+<button class="active" data-view="play">🎮 Main Game</button>
+<button data-view="arenas">🗺️ Arena Map</button>
+<button data-view="teacher">👩‍🏫 Teacher SaaS</button>
+<button data-view="school">🏫 School</button>
+<button data-view="pricing">💳 Plans</button>
 </nav>
 
-<section id="home" class="view active">
-<div class="hero">
-<div class="card heroMain">
-<div class="mission">MAIN QUEST</div><h2>Masuk. Telusuri. Temukan.</h2>
-<p class="muted">Ikuti avatar manusia dari saat minum, masuk ke aliran darah, menelusuri ginjal hingga nefron, lalu selesaikan misi kulit, paru-paru, hati, dan gangguan sistem ekskresi.</p>
-<div class="timeline" id="timeline"></div>
-<div class="actions"><button class="btn primary" onclick="startQuest()">▶ Mulai / Lanjutkan Quest</button><button class="btn" onclick="openArena(0)">🔬 Lihat Arena Aktif</button></div>
-</div>
-<div class="scene">
-<div class="bodyAvatar"><div class="bodyHead"></div><div class="torso"></div><div class="arm a1"></div><div class="arm a2"></div><div class="leg l1"></div><div class="leg l2"></div></div>
-<div class="pulse">💧</div>
-<div class="guide"><div class="hijab"></div><div class="head"></div><div class="coat"></div><div class="screen"></div><div class="faceless">FACeless GUIDE</div></div>
-</div>
-</div>
-<div class="grid" style="margin-top:15px">
-<div class="card"><h3>🧑 Avatar</h3><p class="muted">Manusia menjadi avatar utama. Perjalanan dimulai ketika avatar minum dan kamera memasuki tubuh.</p></div>
-<div class="card"><h3>🧕 Guide</h3><p class="muted">Ilmuwan muslimah faceless dengan hijab, jas putih, tablet/scanner holografik, dan gestur pendamping.</p></div>
-<div class="card"><h3>🎮 Gameplay</h3><p class="muted">Eksplorasi organ → breakdown struktur → mini-mission → XP → arena berikutnya.</p></div>
-</div>
+<main>
+<section id="play" class="view active">
+  <div class="hero">
+    <div>
+      <span class="eyebrow">✦ LEARN · EXPLORE · MASTER</span>
+      <h2>Journey Inside<br>the Human Body.</h2>
+      <p>Belajar sistem ekskresi dengan avatar <b>chibi</b>, misi, arena, XP, badge, dan tantangan sains. Pemain masuk dari minum air, mengikuti aliran darah, lalu menemukan cara tubuh membuang zat sisa.</p>
+      <div class="hero-actions"><button class="btn primary" onclick="startNext()">▶ Lanjutkan Misi</button><button class="btn ghost" onclick="openAvatar()">✨ Custom Avatar</button></div>
+    </div>
+    <div class="scene">
+      <div class="scene-label">AVATAR CHIBI • <span id="playerNameLabel">Alya</span></div>
+      <div class="chibi" onclick="openAvatar()" title="Klik untuk custom avatar">
+        <div class="hair"></div><div class="head"><i class="eye l"></i><i class="eye r"></i><i class="smile"></i></div><div class="hood"></div><div class="backpack"></div><div class="body"></div><div class="badge"></div><div class="leg l"></div><div class="leg r"></div><div class="shoe l"></div><div class="shoe r"></div>
+      </div>
+      <div class="guide"><div class="hijab"></div><div class="ghead"></div><div class="opening"></div><div class="gbody"></div><div class="arm"></div><div class="tablet"></div></div>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card metric"><strong id="mProgress">0%</strong><span>Progress misi</span><div class="progress" style="margin-top:10px"><i id="bar" style="width:0%"></i></div></div>
+    <div class="card metric"><strong id="mArenas">1 / 12</strong><span>Arena terbuka</span></div>
+    <div class="card metric"><strong id="mBadges">0</strong><span>Badge diperoleh</span></div>
+    <div class="card metric"><strong id="mClass">Demo Class</strong><span>Kelas aktif</span></div>
+  </div>
+  <div class="section-head"><h3>🧭 Misi berikutnya</h3><button class="btn ghost" onclick="showView('arenas')">Lihat semua</button></div>
+  <div class="card" id="nextMission"></div>
 </section>
 
-<section id="map" class="view"><div class="card"><h2>🗺️ Arena Map</h2><p class="muted">Selesaikan arena secara berurutan. Setiap arena membuka perjalanan berikutnya.</p><div class="progress"><i id="bar"></i></div></div><div class="arenaMap" id="arenas"></div></section>
-
-<section id="profile" class="view">
-<div class="grid">
-<div class="card"><h2>👤 Scientist Avatar</h2><div class="scene" style="min-height:360px"><div class="bodyAvatar" style="left:50%;transform:translateX(-50%)"><div class="bodyHead"></div><div class="torso"></div><div class="arm a1"></div><div class="arm a2"></div><div class="leg l1"></div><div class="leg l2"></div></div></div></div>
-<div class="card"><h2>🧕 Guide Persona</h2><p class="muted">Faceless Muslimah Scientist</p><span class="tag">Hijab</span><span class="tag">White Lab Coat</span><span class="tag">Holographic Scanner</span><span class="tag">Educational Guide</span><hr style="border-color:var(--line)"><h3>Dialog style</h3><p class="muted">Singkat, investigatif, memberi petunjuk saat pemain menemui konsep sulit—bukan sekadar memberikan jawaban.</p></div>
-</div>
-<div class="card" style="margin-top:15px"><h2>🎒 Unlockables</h2><div id="badges"></div></div>
+<section id="arenas" class="view">
+  <div class="section-head"><h3>🗺️ Arena Map — Excretion Quest</h3><span class="tag blue">12 Arena</span></div>
+  <div class="arena-grid" id="arenaGrid"></div>
 </section>
 
-<section id="data" class="view">
-<div class="grid">
-<div class="card"><h2>📊 Player Data</h2><label>Nama / Nickname<input id="name" placeholder="Masukkan nama"></label><br><label>Kelas<input id="kelas" placeholder="Contoh: VIII A"></label><br><button class="btn primary" onclick="saveIdentity()">Simpan</button></div>
-<div class="card"><h2>🏆 Achievement</h2><p id="achievement" class="muted"></p><button class="btn" onclick="downloadCSV()">⬇️ Unduh hasil CSV</button></div>
-</div>
+<section id="teacher" class="view">
+  <div class="saas-banner"><div><span class="eyebrow" style="color:#246BFE">TEACHER SaaS</span><h2 style="margin:8px 0 0">Kelola kelas, bukan sekadar bermain.</h2><p>Dashboard untuk guru membuat kelas, membagikan kode, mengatur misi, dan memantau progres siswa.</p></div><button class="btn" onclick="showView('school')">⚙️ Kelola Tenant</button></div>
+  <div class="cards">
+    <div class="card metric"><strong id="tStudents">24</strong><span>Students</span></div><div class="card metric"><strong>78%</strong><span>Avg. mastery</span></div><div class="card metric"><strong>5</strong><span>Active missions</span></div><div class="card metric"><strong>92%</strong><span>Completion</span></div>
+  </div>
+  <div class="two" style="margin-top:16px">
+    <div class="card"><div class="section-head" style="margin-top:0"><h3>👥 Roster Demo Class</h3><button class="btn primary" onclick="addStudent()">+ Tambah</button></div><table class="table"><thead><tr><th>Siswa</th><th>Progress</th><th>Mastery</th></tr></thead><tbody id="roster"></tbody></table></div>
+    <div class="card"><div class="section-head" style="margin-top:0"><h3>🔗 Student Join</h3></div><div style="font-size:32px;font-weight:1000;letter-spacing:6px;color:var(--blue);text-align:center;padding:12px">EXQ-7K2P</div><p style="color:var(--muted);font-size:12px;text-align:center">Bagikan kode ini agar siswa masuk ke kelas.</p><button class="btn ghost" style="width:100%" onclick="navigator.clipboard?.writeText('EXQ-7K2P');toast('Kode kelas disalin')">Salin Kode</button><div class="notice" style="margin-top:14px">Pada versi produksi, kode ini akan berasal dari database tenant dan memiliki expiry/rotasi.</div></div>
+  </div>
+  <div class="card" style="margin-top:16px"><div class="section-head" style="margin-top:0"><h3>📊 Assignment</h3><button class="btn primary" onclick="toast('Assignment dibuat pada mode demo')">+ Buat Assignment</button></div><table class="table"><tbody><tr><td><b>Kidney City</b><br><span class="tag green">Published</span></td><td>24 siswa</td><td>Deadline Jumat</td></tr><tr><td><b>Filtration Chamber</b><br><span class="tag gold">Draft</span></td><td>—</td><td>Belum dipublikasikan</td></tr></tbody></table></div>
 </section>
+
+<section id="school" class="view">
+  <div class="section-head"><h3>🏫 School / Tenant Settings</h3><span class="tag green" id="planTag">SCHOOL</span></div>
+  <div class="two">
+    <div class="card">
+      <h3 style="margin-top:0">Branding Tenant</h3>
+      <div class="field"><label>NAMA SEKOLAH / ORGANISASI</label><input id="schoolName" value="Demo School"></div>
+      <div class="grid2"><div class="field"><label>SUBDOMAIN</label><input id="subdomain" value="demo.excretionquest.id"></div><div class="field"><label>ADMIN EMAIL</label><input value="admin@demoschool.sch.id"></div></div>
+      <div class="field"><label>PAKET</label><select id="plan"><option>FREE</option><option selected>SCHOOL</option><option>PRO</option></select></div>
+      <button class="btn primary" onclick="saveTenant()">Simpan Tenant</button>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">🔐 SaaS Architecture</h3>
+      <p style="color:var(--muted);line-height:1.7;font-size:13px">Aplikasi ini sudah dipisahkan secara konsep menjadi <b>tenant → users → classes → assignments → attempts → progress</b>. Mode GitHub Pages saat ini menggunakan localStorage sebagai demo; data produksi sebaiknya dipindahkan ke database + authentication + payment provider.</p>
+      <div class="notice">⚠️ Jangan menaruh secret key database/payment di frontend GitHub Pages. Gunakan backend/serverless functions untuk transaksi dan webhook.</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3 style="margin-top:0">🧩 Feature Gate</h3><div class="cards" style="margin-top:0"><div class="card"><b>FREE</b><p style="color:var(--muted);font-size:12px">1 kelas · 10 siswa · 4 arena</p></div><div class="card"><b>SCHOOL</b><p style="color:var(--muted);font-size:12px">20 kelas · 500 siswa · analytics</p></div><div class="card"><b>PRO</b><p style="color:var(--muted);font-size:12px">Unlimited · white-label · export/API</p></div></div></div>
+</section>
+
+<section id="pricing" class="view">
+  <div class="section-head"><h3>💳 Pricing — siap dijadikan produk</h3><span class="tag blue">SaaS</span></div>
+  <p style="color:var(--muted);max-width:750px">Contoh paket komersial. Harga dan gateway pembayaran dapat diganti sesuai strategi bisnis; tombol checkout saat ini hanya simulasi agar aman di GitHub Pages.</p>
+  <div class="price-grid">
+    <div class="price"><h4>Free</h4><strong>Rp0</strong><p style="color:var(--muted)">Untuk mencoba.</p><ul><li>1 kelas</li><li>10 siswa</li><li>4 arena</li><li>Basic progress</li></ul><button class="btn ghost" style="width:100%" onclick="choosePlan('FREE')">Gunakan Free</button></div>
+    <div class="price featured"><span class="label">POPULER</span><h4>School</h4><strong>Rp499k<small>/bulan</small></strong><p style="color:var(--muted)">Untuk sekolah.</p><ul><li>20 kelas</li><li>500 siswa</li><li>Semua arena</li><li>Teacher analytics</li><li>Assignment & join code</li></ul><button class="btn primary" style="width:100%" onclick="checkout('SCHOOL')">Mulai School</button></div>
+    <div class="price"><h4>Pro</h4><strong>Rp1,49jt<small>/bulan</small></strong><p style="color:var(--muted)">Untuk jaringan/lembaga.</p><ul><li>Unlimited</li><li>White-label</li><li>API / export</li><li>Advanced analytics</li><li>Priority support</li></ul><button class="btn ghost" style="width:100%" onclick="checkout('PRO')">Hubungi / Upgrade</button></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>🚀 Jalur menuju SaaS production</h3><div class="grid2"><div><b>1. Auth & Database</b><p style="color:var(--muted);font-size:12px">Supabase/Firebase: users, tenants, classes, progress.</p><b>2. Payment</b><p style="color:var(--muted);font-size:12px">Midtrans/Xendit/Stripe + webhook server.</p></div><div><b>3. White-label</b><p style="color:var(--muted);font-size:12px">Logo, warna, subdomain, bank soal per tenant.</p><b>4. Deployment</b><p style="color:var(--muted);font-size:12px">Frontend CDN + serverless API + domain sendiri.</p></div></div></div>
+</section>
+</main>
+<div class="footer">EXCRETION QUEST SaaS · Chibi Science Adventure · Demo build for product validation</div>
 </div>
 
-<div class="modal" id="modal"><div class="modalBox card"><div style="display:flex;justify-content:space-between;gap:10px"><div><span class="mission" id="mnum"></span><h2 id="mtitle"></h2></div><button class="btn" onclick="closeModal()">✕</button></div><div id="mcontent"></div></div></div>
-<div class="toast" id="toast"></div>
+<div class="modal" id="modal"><div class="modal-box"><div class="section-head" style="margin:0"><h3 id="modalTitle"></h3><button class="btn" onclick="closeModal()">✕</button></div><div id="modalBody"></div></div></div>
+<div id="toast" style="position:fixed;right:18px;bottom:18px;background:#14213d;color:#fff;padding:12px 16px;border-radius:13px;display:none;z-index:80;font-weight:800"></div>
 
 <script>
-const KEY='excretionQuestV1';
 const arenas=[
-{title:'Body Entry',icon:'💧',tag:'PROLOGUE',text:'Avatar minum air. Ikuti perjalanan dari tubuh luar menuju aliran darah.',task:'Pilih urutan awal yang tepat untuk memulai ekspedisi.',choices:['Avatar minum → perjalanan masuk tubuh → aliran darah','Avatar minum → langsung menjadi urin','Avatar minum → langsung keluar melalui paru-paru'],answer:0,xp:60,guide:'“Mulai dari kejadian yang bisa kamu amati. Ikuti perjalanan cairan menuju sistem tubuh.”'},
-{title:'Bloodstream',icon:'🩸',tag:'EXPLORATION',text:'Kamu sudah berada di aliran darah. Temukan empat organ ekskresi yang menjadi tujuan ekspedisi.',task:'Pilih kelompok organ ekskresi yang sesuai materi.',choices:['Ginjal, kulit, paru-paru, hati','Jantung, otak, lambung, tulang','Mata, telinga, hidung, lidah'],answer:0,xp:70,guide:'“Darah menjadi jalur perjalanan. Sekarang temukan empat organ tujuan.”'},
-{title:'Kidney City',icon:'🫘',tag:'BREAKDOWN',text:'Kamera melakukan zoom ke ginjal. Kenali tiga bagian utamanya sebelum masuk lebih dalam.',task:'Susun struktur utama ginjal.',choices:['Korteks → medula → pelvis','Pelvis → alveolus → dermis','Medula → uretra → epidermis'],answer:0,xp:80,guide:'“Jangan buru-buru masuk. Kenali peta ginjal terlebih dahulu.”'},
-{title:'Nephron Lab',icon:'🔬',tag:'DEEP DIVE',text:'Masuk dari ginjal ke korteks, lalu temukan nefron. Fokuskan kamera pada badan Malpighi.',task:'Bagian yang terdiri atas glomerulus dan kapsul Bowman adalah...',choices:['Badan Malpighi','Alveolus','Kelenjar keringat'],answer:0,xp:90,guide:'“Sekarang kita berada pada level mikroskopis. Perhatikan glomerulus dan kapsul Bowman.”'},
-{title:'Filtration Chamber',icon:'💧',tag:'FILTRATION',text:'Darah melewati glomerulus. Zat tertentu masuk ke kapsul Bowman melalui proses filtrasi.',task:'Mana yang disebut hasil pemisahan pada filtrasi menurut materi?',choices:['Air, gula, asam amino, dan urea','Sel darah merah dan semua protein','Hanya oksigen'],answer:0,xp:100,guide:'“Filtrasi memisahkan zat tertentu dari darah menuju kapsul Bowman.”'},
-{title:'Reabsorption Rescue',icon:'♻️',tag:'REABSORPTION',text:'Tidak semua hasil penyaringan harus dibuang. Ikuti proses pengambilan kembali zat yang masih diperlukan.',task:'Apa nama proses penyerapan kembali glukosa dan bahan lain oleh aliran darah?',choices:['Reabsorpsi','Ventilasi','Ekskresi paru'],answer:0,xp:100,guide:'“Tubuh memiliki mekanisme penyelamatan. Cari zat yang masih diperlukan.”'},
-{title:'Urine Pathway',icon:'🚽',tag:'ROUTE',text:'Filtrat bergerak menuju saluran pengumpul dan selanjutnya menjadi perjalanan urin keluar tubuh.',task:'Pilih jalur urin yang benar.',choices:['Saluran pengumpul → pelvis → ureter → kandung kemih → uretra','Ureter → glomerulus → paru-paru → uretra','Kapsul Bowman → hati → kulit → uretra'],answer:0,xp:90,guide:'“Sekarang ikuti jalur keluar. Jangan melompat dari satu organ ke organ lain.”'},
-{title:'Urine Detective',icon:'🧪',tag:'INVESTIGATION',text:'Analisis sampel urin. Materi menyebut urin normal tidak mengandung protein dan glukosa.',task:'Sampel urin mengandung protein. Struktur yang perlu dicurigai mengalami kerusakan adalah...',choices:['Glomerulus','Alveolus','Epidermis'],answer:0,xp:110,guide:'“Sampel adalah petunjuk. Hubungkan zat yang tidak semestinya ada dengan bagian nefron.”'},
-{title:'Skin Lab',icon:'💦',tag:'SKIN',text:'Kembali ke tubuh. Telusuri kulit hingga kelenjar keringat di dermis.',task:'Lapisan kulit tempat kelenjar keringat berada menurut materi adalah...',choices:['Dermis','Epidermis saja','Jaringan ikat bawah kulit saja'],answer:0,xp:80,guide:'“Sekarang ekspedisi berpindah ke permukaan tubuh. Cari kelenjar keringat.”'},
-{title:'Lung Lab',icon:'🫁',tag:'LUNG',text:'Masuk ke paru-paru dan temukan zat sisa yang dikeluarkan melalui proses pernapasan.',task:'Zat sisa yang dikeluarkan paru-paru menurut materi adalah...',choices:['Karbon dioksida dan uap air','Glukosa dan protein','Bilirubin dan garam mineral'],answer:0,xp:80,guide:'“Tidak semua zat sisa menuju urin. Cari zat yang keluar bersama udara.”'},
-{title:'Liver Filter',icon:'🟤',tag:'LIVER',text:'Masuk ke hati. Temukan bilirubin dan ikuti perannya dalam pembentukan cairan empedu.',task:'Bilirubin hasil penghancuran sel darah merah disaring oleh...',choices:['Hati','Paru-paru','Kulit'],answer:0,xp:90,guide:'“Hati memiliki peran penting dalam memproses bilirubin. Ikuti jalurnya.”'},
-{title:'Excretion Emergency',icon:'⚠️',tag:'FINAL BOSS',text:'Sistem ekskresi mengalami beberapa skenario gangguan. Gunakan hubungan organ–proses–gangguan untuk menyelesaikan misi terakhir.',task:'Kondisi tidak menghasilkan urin disebut...',choices:['Anuria','Hematuria','Sistitis'],answer:0,xp:150,guide:'“Final mission: baca kasus, tentukan organ dan proses yang terganggu.”'}
+['Body Entry','Minum → masuk tubuh → aliran darah','💧','Avatar minum air. Ke mana perjalanan berikutnya berlangsung?',['Ke dalam aliran darah','Langsung ke kandung kemih','Ke paru-paru saja'],'Ke dalam aliran darah'],
+['Bloodstream','Menemukan organ ekskresi','🩸','Organ yang termasuk sistem ekskresi adalah...',['Ginjal, kulit, paru-paru, hati','Jantung, lambung, otak','Mata, telinga, hidung'],'Ginjal, kulit, paru-paru, hati'],
+['Kidney City','Korteks → medula → pelvis','🫘','Urutan bagian ginjal dari luar ke dalam yang tepat adalah...',['Korteks → medula → pelvis','Pelvis → korteks → medula','Medula → pelvis → korteks'],'Korteks → medula → pelvis'],
+['Nephron Lab','Mengenal unit penyusun ginjal','🔬','Bagian nefron yang menjadi tempat awal filtrasi adalah...',['Badan Malpighi','Ureter','Kandung kemih'],'Badan Malpighi'],
+['Filtration Chamber','Glomerulus → kapsul Bowman','⚗️','Zat yang dapat masuk filtrat hasil penyaringan antara lain...',['Air, gula, asam amino, urea','Protein besar dan sel darah','Lemak saja'],'Air, gula, asam amino, urea'],
+['Reabsorption Rescue','Mengembalikan zat berguna','🧪','Proses pengambilan kembali zat yang masih dibutuhkan tubuh disebut...',['Reabsorpsi','Defekasi','Respirasi'],'Reabsorpsi'],
+['Urine Pathway','Saluran pengumpul → pelvis → ureter → kandung kemih → uretra','🚰','Urutan jalur urine yang tepat setelah saluran pengumpul adalah...',['Pelvis → ureter → kandung kemih → uretra','Ureter → pelvis → uretra → kandung kemih','Kandung kemih → pelvis → ureter → uretra'],'Pelvis → ureter → kandung kemih → uretra'],
+['Urine Detective','Menganalisis sampel urine','🕵️','Jika urine mengandung protein, bagian yang perlu dicurigai adalah...',['Glomerulus','Ureter','Kandung kemih'],'Glomerulus'],
+['Skin Lab','Keringat dan kelenjar kulit','🧴','Kelenjar keringat terutama terdapat pada lapisan...',['Dermis','Epidermis','Rambut'],'Dermis'],
+['Lung Lab','CO₂ dan uap air','🫁','Zat sisa yang dikeluarkan paru-paru adalah...',['CO₂ dan uap air','Urea dan empedu','Protein dan glukosa'],'CO₂ dan uap air'],
+['Liver Filter','Bilirubin, detoksifikasi, empedu','🫀','Organ yang berperan dalam pembentukan/ekskresi bilirubin melalui empedu adalah...',['Hati','Ginjal','Kulit'],'Hati'],
+['Excretion Emergency','Final Boss gangguan ekskresi','👾','Kondisi tidak adanya pengeluaran urine disebut...',['Anuria','Hepatitis','Hematuria'],'Anuria']
 ];
-let s=JSON.parse(localStorage.getItem(KEY)||'null')||{name:'',kelas:'',xp:0,stage:0,records:[],badges:[]};
-function persist(){localStorage.setItem(KEY,JSON.stringify(s));renderAll()}
-function toast(t){let e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1800)}
-function show(id,btn){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');renderAll()}
-function renderAll(){
-document.getElementById('xp').textContent=s.xp;document.getElementById('done').textContent=s.stage;
-let ranks=['Explorer','Blood Tracker','Kidney Scout','Nephron Scientist','Excretion Specialist','Master of Excretion'];document.getElementById('rank').textContent=ranks[Math.min(5,Math.floor(s.stage/2))];
-document.getElementById('bar').style.width=(s.stage/arenas.length*100)+'%';
-document.getElementById('timeline').innerHTML=arenas.slice(0,6).map((a,i)=>'<span class="node '+(i<s.stage?'on':'')+'">'+a.icon+' '+a.title+'</span>').join('');
-document.getElementById('arenas').innerHTML=arenas.map((a,i)=>'<div class="card arena '+(i<s.stage?'done ':'')+(i>s.stage?'locked':'')+'" onclick="openArena('+i+')"><div class="arenaNum">ARENA '+String(i+1).padStart(2,'0')+'</div><h3>'+a.icon+' '+a.title+'</h3><p class="muted small">'+a.tag+'</p><b>'+(i<s.stage?'✅ Complete':i===s.stage?'▶ Active':'🔒 Locked')+'</b></div>').join('');
-document.getElementById('name').value=s.name;document.getElementById('kelas').value=s.kelas;
-document.getElementById('achievement').innerHTML='Pemain: <b>'+(s.name||'-')+'</b><br>Kelas: <b>'+(s.kelas||'-')+'</b><br>XP: <b>'+s.xp+'</b><br>Jawaban tercatat: <b>'+s.records.length+'</b>';
-document.getElementById('badges').innerHTML=(s.badges.length?s.badges.map(x=>'<span class="tag">🏅 '+x+'</span>').join(''):'<span class="muted">Selesaikan arena untuk membuka badge.</span>');
+let state=JSON.parse(localStorage.getItem('excretionQuestSaaS')||'null')||{xp:0,stage:0,badges:[],name:'Alya',school:'Demo School',plan:'SCHOOL',tenant:'demo'};
+let students=['Alya Putri','Raka Pratama','Nadia Fitria','Fahmi Akbar','Salsa Nabila'];
+function save(){localStorage.setItem('excretionQuestSaaS',JSON.stringify(state));render()}
+function render(){
+ document.getElementById('xp').textContent=state.xp;
+ document.getElementById('rank').textContent=state.stage>=11?'Excretion Master':state.stage>=7?'Nephron Scientist':state.stage>=4?'Kidney Explorer':'Nephron Rookie';
+ document.getElementById('playerNameLabel').textContent=state.name;
+ const p=Math.round(state.stage/arenas.length*100);document.getElementById('mProgress').textContent=p+'%';document.getElementById('bar').style.width=p+'%';document.getElementById('mArenas').textContent=Math.min(state.stage+1,12)+' / 12';document.getElementById('mBadges').textContent=state.badges.length;document.getElementById('mClass').textContent=state.school+' · Demo';
+ document.getElementById('nextMission').innerHTML=state.stage<12?'<b>Arena '+(state.stage+1)+': '+arenas[state.stage][0]+'</b><p style="color:var(--muted)">'+arenas[state.stage][1]+'</p><button class="btn primary" onclick="openArena('+state.stage+')">Masuk Arena →</button>':'<b>🎉 Semua arena selesai!</b><p style="color:var(--muted)">Kamu menaklukkan sistem ekskresi.</p>';
+ document.getElementById('schoolName').value=state.school;document.getElementById('plan').value=state.plan;
+ document.getElementById('planTag').textContent=state.plan;
+ renderArenas();renderRoster();
 }
-function startQuest(){let i=Math.min(s.stage,arenas.length-1);openArena(i)}
-function openArena(i){
-if(i>s.stage){toast('Arena masih terkunci. Selesaikan arena aktif terlebih dahulu.');return}
-let a=arenas[i];document.getElementById('mnum').textContent='ARENA '+String(i+1).padStart(2,'0')+' • '+a.tag;document.getElementById('mtitle').textContent=a.icon+' '+a.title;
-document.getElementById('mcontent').innerHTML='<p class="muted">'+a.text+'</p><div class="card" style="background:#08161d"><b>🧕 Guide Faceless Scientist</b><p class="muted">'+a.guide+'</p></div><h3>🎯 Mission</h3><p>'+a.task+'</p>'+a.choices.map((c,j)=>'<button class="choice" onclick="answer('+i+','+j+')">'+String.fromCharCode(65+j)+'. '+c+'</button>').join('');
-document.getElementById('modal').classList.add('open')
-}
-function answer(i,j){
-let a=arenas[i], ok=j===a.answer;document.querySelectorAll('.choice').forEach((b,k)=>{b.disabled=true;if(k===a.answer)b.classList.add('good');else if(k===j)b.classList.add('bad')});
-let fb=document.createElement('div');fb.className='card';fb.style.marginTop='12px';fb.innerHTML=ok?'✅ <b>Mission complete!</b><p class="muted">+'+a.xp+' XP. '+a.guide+'</p>':'❌ <b>Petunjuk belum tepat.</b><p class="muted">Periksa kembali konsep pada materi arena ini.</p>';
-document.getElementById('mcontent').appendChild(fb);
-if(ok && i===s.stage){s.xp+=a.xp;s.stage++;s.records.push({time:new Date().toLocaleString('id-ID'),name:s.name||'Pemain',kelas:s.kelas||'-',arena:i+1,title:a.title,result:'Benar',xp:a.xp});s.badges.push(a.title);persist();setTimeout(()=>{if(s.stage===arenas.length)toast('🏆 MASTER OF EXCRETION!');else toast('Arena terbuka: '+arenas[s.stage].title)},700)}
-else if(!ok){s.records.push({time:new Date().toLocaleString('id-ID'),name:s.name||'Pemain',kelas:s.kelas||'-',arena:i+1,title:a.title,result:'Salah',xp:0});persist()}
-}
-function closeModal(){document.getElementById('modal').classList.remove('open')}
-function saveIdentity(){s.name=document.getElementById('name').value.trim();s.kelas=document.getElementById('kelas').value.trim();persist();toast('Identitas tersimpan')}
-function downloadCSV(){if(!s.records.length){toast('Belum ada data jawaban');return}let h=['Waktu','Nama','Kelas','Arena','Judul','Hasil','XP'];let rows=s.records.map(r=>[r.time,r.name,r.kelas,r.arena,r.title,r.result,r.xp]);let csv=[h,...rows].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');let blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Excretion-Quest-'+(s.name||'progress')+'.csv';a.click()}
-renderAll();
+function renderArenas(){document.getElementById('arenaGrid').innerHTML=arenas.map((a,i)=>'<div class="arena '+(i>state.stage?'locked':'')+'" onclick="'+(i<=state.stage?'openArena('+i+')':'lockedArena()')+'"><div class="num">ARENA '+String(i+1).padStart(2,'0')+'</div><h4>'+a[0]+'</h4><p>'+a[1]+'</p><div class="icon">'+(i<=state.stage?a[2]:'🔒')+'</div></div>').join('')}
+function renderRoster(){document.getElementById('roster').innerHTML=students.map((s,i)=>'<tr><td><b>'+s+'</b><br><span class="tag '+(i<3?'green':'gold')+'">'+(i<3?'Active':'Needs support')+'</span></td><td><div class="progress"><i style="width:'+([92,78,64,41,25][i])+'%"></i></div></td><td>'+[94,86,75,61,48][i]+'%</td></tr>').join('')}
+function showView(id){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.view===id));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showView(b.dataset.view));
+function openArena(i){if(i>state.stage)return lockedArena();const a=arenas[i];document.getElementById('modalTitle').textContent='Arena '+(i+1)+' · '+a[0];document.getElementById('modalBody').innerHTML='<p style="color:var(--muted)">'+a[1]+'</p><div class="question"><b>'+a[3]+'</b><div class="options">'+a[4].map(o=>'<button onclick="answer('+i+',this)">'+o+'</button>').join('')+'</div><div class="feedback" id="feedback"></div></div><div class="notice">Guide: Faceless Muslimah Scientist 🧕🏻‍🔬 — amati proses, lalu pilih jawaban berdasarkan bukti di arena.</div>';document.getElementById('modal').classList.add('show')}
+function answer(i,btn){const a=arenas[i],fb=document.getElementById('feedback');if(btn.textContent===a[5]){fb.className='feedback ok';fb.textContent='✓ Tepat! +100 XP. Arena berikutnya terbuka.';if(i===state.stage){state.stage++;state.xp+=100;state.badges.push(a[0]);save()}setTimeout(()=>{closeModal();toast('Arena berhasil ditaklukkan! +100 XP')},650)}else{fb.className='feedback no';fb.textContent='✕ Belum tepat. Baca kembali petunjuk arena dan coba lagi.'}}
+function startNext(){if(state.stage<12)openArena(state.stage);else toast('Semua arena sudah selesai!')}
+function lockedArena(){toast('Arena masih terkunci. Selesaikan arena sebelumnya.')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function openAvatar(){document.getElementById('modalTitle').textContent='✨ Custom Chibi Avatar';document.getElementById('modalBody').innerHTML='<div class="two"><div style="display:grid;place-items:center;background:#eef5ff;border-radius:20px;padding:20px"><div class="chibi"><div class="hair"></div><div class="head"><i class="eye l"></i><i class="eye r"></i><i class="smile"></i></div><div class="hood"></div><div class="backpack"></div><div class="body"></div><div class="badge"></div><div class="leg l"></div><div class="leg r"></div><div class="shoe l"></div><div class="shoe r"></div></div></div><div><div class="field"><label>NAMA AVATAR</label><input id="avatarName" value="'+state.name+'"></div><p style="color:var(--muted);font-size:12px">Progression berikutnya dapat membuka backpack, badge, coat, boots, dan aksesori lain. Struktur ini sengaja dibuat agar item avatar dapat dijadikan cosmetic reward atau premium catalog.</p><button class="btn primary" onclick="saveAvatar()">Simpan Avatar</button></div></div>';document.getElementById('modal').classList.add('show')}
+function saveAvatar(){state.name=document.getElementById('avatarName').value||'Alya';save();closeModal();toast('Avatar disimpan')}
+function saveTenant(){state.school=document.getElementById('schoolName').value||'Demo School';state.plan=document.getElementById('plan').value;save();toast('Tenant tersimpan')}
+function switchTenant(v){state.tenant=v;state.school=v==='lab'?'Science Lab Academy':'Demo School';save();toast('Tenant aktif: '+state.school)}
+function choosePlan(p){state.plan=p;save();toast('Plan '+p+' aktif di mode demo')}
+function checkout(p){toast('Checkout '+p+' siap dihubungkan ke Midtrans/Xendit/Stripe')}
+function addStudent(){students.push('Siswa Baru '+students.length);renderRoster();document.getElementById('tStudents').textContent=students.length;toast('Siswa demo ditambahkan')}
+function toast(msg){const x=document.getElementById('toast');x.textContent=msg;x.style.display='block';clearTimeout(window.__t);window.__t=setTimeout(()=>x.style.display='none',2200)}
+render();
 </script>
-</body></html>
+</body>
+</html>
