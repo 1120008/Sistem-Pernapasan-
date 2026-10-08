@@ -6,17 +6,12 @@
 <title>Laboratorium Maya — Hukum Pascal & Tekanan</title>
 <style>
 :root{--bg:#07101d;--card:#0d1b2d;--line:#29445f;--cyan:#38d9ff;--gold:#ffd75e;--green:#39d98a;--text:#eef7ff;--muted:#9db2c5}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#102b46,#07101d 55%);color:var(--text);font-family:Arial,sans-serif}.app{max-width:1180px;margin:auto;padding:18px}.hero,.card{background:#0d1b2ddd;border:1px solid var(--line);border-radius:18px;padding:18px;margin:12px 0;box-shadow:0 12px 30px #0004}.hero{background:linear-gradient(135deg,#102d49,#0b1829)}h1,h2,h3{margin-top:0}.muted{color:var(--muted);line-height:1.6}.tag{display:inline-block;padding:6px 10px;border-radius:20px;background:#173451;color:#8feaff;font-size:12px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tab,.btn{border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-weight:700;cursor:pointer}.tab{background:#0b1727;color:#c7d7e5}.tab.active,.btn{background:var(--cyan);color:#03111b}.view{display:none}.view.active{display:block}.grid{display:grid;grid-template-columns:330px 1fr;gap:14px}.controls label{display:block;margin:12px 0 6px}.controls input,.controls select{width:100%;padding:10px;border-radius:9px;border:1px solid var(--line);background:#091522;color:white}.value{color:var(--gold);font-weight:700}.lab{min-height:450px;position:relative;overflow:hidden;background:linear-gradient(#0a1b2d,#07111d);border:1px solid var(--line);border-radius:16px}.water{position:absolute;left:0;right:0;bottom:0;height:58%;background:linear-gradient(#08789b88,#063c6688);border-top:2px solid #55dfff66}.bench{position:absolute;left:8%;right:8%;bottom:12%;height:20px;background:#596b7a;border-radius:8px}.plate{position:absolute;background:#bfcad4;border-radius:8px;box-shadow:0 5px 10px #0008}.arrow{position:absolute;font-weight:bold;color:var(--gold);font-size:18px}.piston{position:absolute;background:linear-gradient(90deg,#bfcad4,#f3f7fa,#9daab5);border:2px solid #526474;border-radius:6px;transition:transform .8s}.tube{position:absolute;background:#b6d4dd44;border:5px solid #77d9e8;border-top:0}.bubble{position:absolute;border-radius:50%;background:#b8f3ff88;border:1px solid #d9fbff55;animation:rise 2.8s linear infinite}@keyframes rise{from{transform:translateY(0);opacity:.1}50%{opacity:.8}to{transform:translateY(-180px);opacity:0}}.readout{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.read{background:#091522;border:1px solid var(--line);border-radius:10px;padding:10px}.read b{display:block;color:var(--cyan);font-size:18px;margin-top:4px}.tablewrap{overflow:auto}.data{width:100%;border-collapse:collapse}.data th,.data td{padding:9px;border-bottom:1px solid var(--line);text-align:left}.challenge{border:1px dashed #58718b;background:#111f31;padding:14px;border-radius:12px}.ok{color:var(--green)}.warn{color:var(--gold)}.formula{font-size:20px;background:#091522;padding:14px;border-radius:10px;text-align:center;color:#fff}.meter{height:16px;background:#15283d;border-radius:10px;overflow:hidden}.meter span{display:block;height:100%;background:var(--cyan);width:0;transition:width .5s}.foot{color:#7f96aa;font-size:12px;text-align:center;padding:18px}@media(max-width:800px){.grid{grid-template-columns:1fr}.readout{grid-template-columns:1fr 1fr}}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#102b46,#07101d 55%);color:var(--text);font-family:Arial,sans-serif}.app{max-width:1180px;margin:auto;padding:18px}.hero,.card{background:#0d1b2ddd;border:1px solid var(--line);border-radius:18px;padding:18px;margin:12px 0;box-shadow:0 12px 30px #0004}.hero{background:linear-gradient(135deg,#102d49,#0b1829)}h1,h2,h3{margin-top:0}.muted{color:var(--muted);line-height:1.6}.tag{display:inline-block;padding:6px 10px;border-radius:20px;background:#173451;color:#8feaff;font-size:12px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tab,.btn{border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-weight:700;cursor:pointer}.tab{background:#0b1727;color:#c7d7e5}.tab.active,.btn{background:var(--cyan);color:#03111b}.view{display:none}.view.active{display:block}.grid{display:grid;grid-template-columns:330px 1fr;gap:14px}.controls label{display:block;margin:12px 0 6px}.controls input,.controls select{width:100%;padding:10px;border-radius:9px;border:1px solid var(--line);background:#091522;color:white}.value{color:var(--gold);font-weight:700}.lab{min-height:450px;position:relative;overflow:hidden;background:linear-gradient(#0a1b2d,#07111d);border:1px solid var(--line);border-radius:16px}.water{position:absolute;left:0;right:0;bottom:0;height:58%;background:linear-gradient(#08789b88,#063c6688);border-top:2px solid #55dfff66}.bench{position:absolute;left:8%;right:8%;bottom:12%;height:20px;background:#596b7a;border-radius:8px}.plate{position:absolute;background:#bfcad4;border-radius:8px;box-shadow:0 5px 10px #0008}.arrow{position:absolute;font-weight:bold;color:var(--gold);font-size:18px}.piston{position:absolute;background:linear-gradient(90deg,#bfcad4,#f3f7fa,#9daab5);border:2px solid #526474;border-radius:6px;transition:transform .8s}.tube{position:absolute;background:#b6d4dd44;border:5px solid #77d9e8;border-top:0}.bubble{position:absolute;border-radius:50%;background:#b8f3ff88;border:1px solid #d9fbff55;animation:rise 2.8s linear infinite}@keyframes rise{from{transform:translateY(0);opacity:.1}50%{opacity:.8}to{transform:translateY(-180px);opacity:0}}.readout{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.read{background:#091522;border:1px solid var(--line);border-radius:10px;padding:10px}.read b{display:block;color:var(--cyan);font-size:18px;margin-top:4px}.tablewrap{overflow:auto}.data{width:100%;border-collapse:collapse}.data th,.data td{padding:9px;border-bottom:1px solid var(--line);text-align:left}.challenge{border:1px dashed #58718b;background:#111f31;padding:14px;border-radius:12px}.ok{color:var(--green)}.warn{color:var(--gold)}.formula{font-size:20px;background:#091522;padding:14px;border-radius:10px;text-align:center;color:#fff}.foot{color:#7f96aa;font-size:12px;text-align:center;padding:18px}@media(max-width:800px){.grid{grid-template-columns:1fr}.readout{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <div class="app">
-<section class="hero">
-<span class="tag">🧪 LABORATORIUM MAYA IPA</span>
-<h1>⚙️ Hukum Pascal & Tekanan</h1>
-<p class="muted">Eksperimen virtual: ubah variabel, prediksi hasil, jalankan simulasi, lalu analisis data seperti seorang ilmuwan.</p>
-</section>
-
+<section class="hero"><span class="tag">🧪 LABORATORIUM MAYA IPA</span><h1>⚙️ Hukum Pascal & Tekanan</h1><p class="muted">Eksperimen virtual: ubah variabel, prediksi hasil, jalankan simulasi, lalu analisis data seperti seorang ilmuwan.</p></section>
 <div class="tabs">
 <button class="tab active" onclick="show('pascal',this)">💧 Lab Pascal</button>
 <button class="tab" onclick="show('padat',this)">🧱 Tekanan Padat</button>
@@ -25,171 +20,49 @@
 <button class="tab" onclick="show('tantangan',this)">🏆 Tantangan</button>
 </div>
 
-<section id="pascal" class="view active">
-<div class="grid">
-<div class="card controls">
-<h2>💧 Eksperimen Dongkrak Hidrolik</h2>
-<p class="muted">Atur gaya dan luas penampang. Amati bagaimana tekanan diteruskan oleh fluida tertutup.</p>
-<label>Gaya pada piston kecil F₁ <span class="value" id="f1v">50 N</span></label>
-<input id="f1" type="range" min="10" max="200" value="50" oninput="sync()">
-<label>Luas piston kecil A₁ <span class="value" id="a1v">5 cm²</span></label>
-<input id="a1" type="range" min="1" max="20" value="5" oninput="sync()">
-<label>Luas piston besar A₂ <span class="value" id="a2v">100 cm²</span></label>
-<input id="a2" type="range" min="20" max="300" value="100" oninput="sync()">
-<button class="btn" style="width:100%;margin-top:14px" onclick="runPascal()">▶ Jalankan Eksperimen</button>
-<div class="formula" style="margin-top:12px">P₁ = F₁/A₁ = P₂ = F₂/A₂</div>
-</div>
-<div>
-<div class="lab" id="pascalLab">
-<div class="tube" style="left:18%;right:18%;bottom:17%;height:38%"></div>
-<div class="piston" id="p1" style="width:20%;height:12%;left:8%;bottom:48%"></div>
-<div class="piston" id="p2" style="width:35%;height:12%;right:8%;bottom:48%"></div>
-<div class="arrow" style="left:12%;top:18%">↓ F₁</div>
-<div class="arrow" style="right:13%;top:18%">↑ F₂</div>
-<div class="water"></div>
-<div class="bench"></div>
-<div class="muted" style="position:absolute;bottom:3%;left:5%">Fluida tertutup</div>
-</div>
-<div class="readout">
-<div class="read">Tekanan P₁<b id="p1r">—</b></div>
-<div class="read">Gaya keluaran F₂<b id="f2r">—</b></div>
-<div class="read">Keuntungan mekanis<b id="mr">—</b></div>
-</div>
-</div>
-</div>
-<div class="card"><h3>🔎 Apa yang harus ditemukan?</h3><p class="muted">Apakah memperbesar A₂ membuat F₂ lebih besar? Apakah tekanan P₁ dan P₂ tetap sama? Catat hasil eksperimen sebelum membaca penjelasan.</p></div>
-</section>
+<section id="pascal" class="view active"><div class="grid">
+<div class="card controls"><h2>💧 Eksperimen Dongkrak Hidrolik</h2><p class="muted">Atur gaya dan luas penampang. Amati bagaimana tekanan diteruskan oleh fluida tertutup.</p>
+<label>Gaya pada piston kecil F₁ <span class="value" id="f1v">50 N</span></label><input id="f1" type="range" min="10" max="200" value="50" oninput="sync()">
+<label>Luas piston kecil A₁ <span class="value" id="a1v">5 cm²</span></label><input id="a1" type="range" min="1" max="20" value="5" oninput="sync()">
+<label>Luas piston besar A₂ <span class="value" id="a2v">100 cm²</span></label><input id="a2" type="range" min="20" max="300" value="100" oninput="sync()">
+<button class="btn" style="width:100%;margin-top:14px" onclick="runPascal()">▶ Jalankan Eksperimen</button><div class="formula" style="margin-top:12px">P₁ = F₁/A₁ = P₂ = F₂/A₂</div></div>
+<div><div class="lab"><div class="tube" style="left:18%;right:18%;bottom:17%;height:38%"></div><div class="piston" id="p1" style="width:20%;height:12%;left:8%;bottom:48%"></div><div class="piston" id="p2" style="width:35%;height:12%;right:8%;bottom:48%"></div><div class="arrow" style="left:12%;top:18%">↓ F₁</div><div class="arrow" style="right:13%;top:18%">↑ F₂</div><div class="water"></div><div class="bench"></div><div class="muted" style="position:absolute;bottom:3%;left:5%">Fluida tertutup</div></div>
+<div class="readout"><div class="read">Tekanan P₁<b id="p1r">—</b></div><div class="read">Gaya keluaran F₂<b id="f2r">—</b></div><div class="read">Keuntungan mekanis<b id="mr">—</b></div></div></div></div>
+<div class="card"><h3>🔎 Pertanyaan investigasi</h3><p class="muted">Apakah memperbesar A₂ membuat F₂ lebih besar? Apakah tekanan P₁ dan P₂ tetap sama? Buat prediksi sebelum menjalankan eksperimen.</p></div></section>
 
-<section id="padat" class="view">
-<div class="grid">
-<div class="card controls">
-<h2>🧱 Eksperimen Tekanan Padat</h2>
-<label>Gaya tekan F <span class="value" id="fpv">100 N</span></label>
-<input id="fp" type="range" min="10" max="500" value="100" oninput="syncPadat()">
-<label>Luas bidang A <span class="value" id="apv">0.05 m²</span></label>
-<input id="ap" type="range" min="1" max="100" value="5" oninput="syncPadat()">
-<button class="btn" style="width:100%;margin-top:14px" onclick="runPadat()">▶ Hitung Tekanan</button>
-<div class="formula" style="margin-top:12px">P = F/A</div>
-</div>
-<div class="card">
-<div class="lab">
-<div class="plate" id="solidPlate" style="width:28%;height:20%;left:36%;bottom:25%"></div>
-<div class="arrow" style="left:46%;top:17%">↓ F</div>
-<div class="bench"></div>
-</div>
-<div class="readout">
-<div class="read">Gaya<b id="fpr">—</b></div>
-<div class="read">Luas<b id="apr">—</b></div>
-<div class="read">Tekanan<b id="ppr">—</b></div>
-</div>
-</div>
-</div>
-</section>
+<section id="padat" class="view"><div class="grid">
+<div class="card controls"><h2>🧱 Eksperimen Tekanan Padat</h2><label>Gaya tekan F <span class="value" id="fpv">100 N</span></label><input id="fp" type="range" min="10" max="500" value="100" oninput="syncPadat()"><label>Luas bidang A <span class="value" id="apv">0.05 m²</span></label><input id="ap" type="range" min="1" max="100" value="5" oninput="syncPadat()"><button class="btn" style="width:100%;margin-top:14px" onclick="runPadat()">▶ Hitung Tekanan</button><div class="formula" style="margin-top:12px">P = F/A</div></div>
+<div class="card"><div class="lab"><div class="plate" id="solidPlate" style="width:28%;height:20%;left:36%;bottom:25%"></div><div class="arrow" style="left:46%;top:17%">↓ F</div><div class="bench"></div></div><div class="readout"><div class="read">Gaya<b id="fpr">—</b></div><div class="read">Luas<b id="apr">—</b></div><div class="read">Tekanan<b id="ppr">—</b></div></div></div>
+</div></section>
 
-<section id="hidro" class="view">
-<div class="grid">
-<div class="card controls">
-<h2>🌊 Eksperimen Hidrostatis</h2>
-<label>Massa jenis cairan ρ <span class="value" id="rhov">1000 kg/m³</span></label>
-<select id="rho" onchange="syncHydro()"><option value="1000">Air — 1000 kg/m³</option><option value="800">Minyak — 800 kg/m³</option><option value="13600">Raksa — 13.600 kg/m³</option></select>
-<label>Kedalaman h <span class="value" id="hv">1 m</span></label>
-<input id="h" type="range" min="1" max="10" value="1" oninput="syncHydro()">
-<button class="btn" style="width:100%;margin-top:14px" onclick="runHydro()">▶ Jalankan Eksperimen</button>
-<div class="formula" style="margin-top:12px">P<sub>h</sub> = ρgh</div>
-</div>
-<div class="card">
-<div class="lab" style="background:linear-gradient(#0b2b3e,#021827)">
-<div class="water" style="height:88%"></div>
-<div class="plate" id="sensor" style="width:18%;height:9%;left:41%;bottom:30%"></div>
-<div class="arrow" id="depthArrow" style="left:65%;bottom:28%">h</div>
-</div>
-<div class="readout">
-<div class="read">ρ<b id="rhor">—</b></div>
-<div class="read">h<b id="hr">—</b></div>
-<div class="read">Tekanan hidrostatis<b id="phr">—</b></div>
-</div>
-</div>
-</div>
-</section>
+<section id="hidro" class="view"><div class="grid">
+<div class="card controls"><h2>🌊 Eksperimen Hidrostatis</h2><label>Massa jenis cairan ρ <span class="value" id="rhov">1000 kg/m³</span></label><select id="rho" onchange="syncHydro()"><option value="1000">Air — 1000 kg/m³</option><option value="800">Minyak — 800 kg/m³</option><option value="13600">Raksa — 13.600 kg/m³</option></select><label>Kedalaman h <span class="value" id="hv">1 m</span></label><input id="h" type="range" min="1" max="10" value="1" oninput="syncHydro()"><button class="btn" style="width:100%;margin-top:14px" onclick="runHydro()">▶ Jalankan Eksperimen</button><div class="formula" style="margin-top:12px">P<sub>h</sub> = ρgh</div></div>
+<div class="card"><div class="lab" id="hydroLab" style="background:linear-gradient(#0b2b3e,#021827)"><div class="water" style="height:88%"></div><div class="plate" id="sensor" style="width:18%;height:9%;left:41%;bottom:30%"></div><div class="arrow" id="depthArrow" style="left:65%;bottom:28%">h</div></div><div class="readout"><div class="read">ρ<b id="rhor">—</b></div><div class="read">h<b id="hr">—</b></div><div class="read">Tekanan hidrostatis<b id="phr">—</b></div></div></div>
+</div></section>
 
-<section id="data" class="view">
-<div class="card">
-<h2>📊 Buku Catatan Laboratorium</h2>
-<p class="muted">Setiap eksperimen yang dijalankan dapat disimpan sebagai data pengamatan.</p>
-<button class="btn" onclick="downloadCSV()">⬇️ Unduh CSV</button>
-<button class="tab" onclick="clearData()">Hapus Catatan</button>
-<div class="tablewrap" style="margin-top:14px"><table class="data"><thead><tr><th>Waktu</th><th>Eksperimen</th><th>Variabel</th><th>Hasil</th></tr></thead><tbody id="log"></tbody></table></div>
-</div>
-</section>
+<section id="data" class="view"><div class="card"><h2>📊 Buku Catatan Laboratorium</h2><p class="muted">Setiap eksperimen yang dijalankan dapat disimpan sebagai data pengamatan.</p><button class="btn" onclick="downloadCSV()">⬇️ Unduh CSV</button> <button class="tab" onclick="clearData()">Hapus Catatan</button><div class="tablewrap" style="margin-top:14px"><table class="data"><thead><tr><th>Waktu</th><th>Eksperimen</th><th>Variabel</th><th>Hasil</th></tr></thead><tbody id="log"></tbody></table></div></div></section>
 
-<section id="tantangan" class="view">
-<div class="card">
-<h2>🏆 Tantangan Investigator</h2>
-<div class="challenge">
-<h3>Misi 1 — Dongkrak Mobil</h3>
-<p class="muted">Piston kecil memiliki A₁ = 5 cm² dan diberi gaya 50 N. Jika A₂ = 100 cm², berapa gaya ideal pada piston besar?</p>
-<button class="tab" onclick="check(100)">100 N</button>
-<button class="tab" onclick="check(500)">500 N</button>
-<button class="tab" onclick="check(1000)">1000 N</button>
-<button class="tab" onclick="check(2500)">2500 N</button>
-<p id="feedback"></p>
-</div>
-<div class="challenge" style="margin-top:12px">
-<h3>Misi 2 — Detektif Tekanan</h3>
-<p class="muted">Dua benda mendapat gaya yang sama. Benda A memiliki luas bidang sentuh lebih kecil. Mana yang memberikan tekanan lebih besar?</p>
-<button class="tab" onclick="feedback2(true)">A</button>
-<button class="tab" onclick="feedback2(false)">B</button>
-<p id="feedback2"></p>
-</div>
-</div>
-</section>
-
+<section id="tantangan" class="view"><div class="card"><h2>🏆 Tantangan Investigator</h2>
+<div class="challenge"><h3>Misi 1 — Dongkrak Mobil</h3><p class="muted">Piston kecil memiliki A₁ = 5 cm² dan diberi gaya 50 N. Jika A₂ = 100 cm², berapa gaya ideal pada piston besar?</p><button class="tab" onclick="check(100)">100 N</button> <button class="tab" onclick="check(500)">500 N</button> <button class="tab" onclick="check(1000)">1000 N</button> <button class="tab" onclick="check(2500)">2500 N</button><p id="feedback"></p></div>
+<div class="challenge" style="margin-top:12px"><h3>Misi 2 — Detektif Tekanan</h3><p class="muted">Dua benda mendapat gaya yang sama. Benda A memiliki luas bidang sentuh lebih kecil. Mana yang memberikan tekanan lebih besar?</p><button class="tab" onclick="answerPressure(true)">A</button> <button class="tab" onclick="answerPressure(false)">B</button><p id="feedbackPressure"></p></div>
+</div></section>
 <div class="foot">Laboratorium Maya Hukum Pascal & Tekanan • Media Pembelajaran IPA</div>
 </div>
 
 <script>
-const logs=[];
-const $=id=>document.getElementById(id);
-function show(id,btn){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');}
+const logs=[];const $=id=>document.getElementById(id);
+function show(id,btn){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.tabs .tab').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active')}
 function sync(){f1v.textContent=f1.value+' N';a1v.textContent=a1.value+' cm²';a2v.textContent=a2.value+' cm²'}
 function syncPadat(){fpv.textContent=fp.value+' N';apv.textContent=(ap.value/100).toFixed(2)+' m²'}
 function syncHydro(){rhov.textContent=Number(rho.value).toLocaleString('id-ID')+' kg/m³';hv.textContent=h.value+' m'}
 function addLog(exp,vars,result){logs.unshift({time:new Date().toLocaleString('id-ID'),exp,vars,result});renderLog()}
 function renderLog(){log.innerHTML=logs.map(x=>'<tr><td>'+x.time+'</td><td>'+x.exp+'</td><td>'+x.vars+'</td><td>'+x.result+'</td></tr>').join('')}
-function runPascal(){
- const F1=+f1.value,A1=+a1.value,A2=+a2.value;
- const P=F1/A1;
- const F2=P*A2;
- const mech=A2/A1;
- p1r.textContent=P.toFixed(2)+' N/cm²';
- f2r.textContent=F2.toFixed(2)+' N';
- mr.textContent=mech.toFixed(1)+'×';
- p1.style.transform='translateY(25px)';p2.style.transform='translateY(-25px)';
- setTimeout(()=>{p1.style.transform='';p2.style.transform=''},1000);
- addLog('Hukum Pascal','F₁='+F1+' N; A₁='+A1+' cm²; A₂='+A2+' cm²','P='+P.toFixed(2)+' N/cm²; F₂='+F2.toFixed(2)+' N');
-}
-function runPadat(){
- const F=+fp.value,A=+ap.value/100,P=F/A;
- fpr.textContent=F+' N';apr.textContent=A.toFixed(2)+' m²';ppr.textContent=P.toFixed(2)+' Pa';
- const scale=Math.min(1.8,Math.max(.55,Math.sqrt(P/2000)));solidPlate.style.transform='scaleY('+scale+')';
- addLog('Tekanan Padat','F='+F+' N; A='+A.toFixed(2)+' m²','P='+P.toFixed(2)+' Pa');
-}
-function runHydro(){
- const rhoV=+rho.value,hV=+h.value,g=9.8,P=rhoV*g*hV;
- rhor.textContent=rhoV.toLocaleString('id-ID')+' kg/m³';hr.textContent=hV+' m';phr.textContent=P.toLocaleString('id-ID')+' Pa';
- sensor.style.bottom=(22+hV*5)+'%';depthArrow.style.bottom=(20+hV*5)+'%';
- for(let i=0;i<5;i++){let b=document.createElement('div');b.className='bubble';b.style.left=(20+i*13)+'%';b.style.bottom='5%';b.style.animationDelay=(i*.3)+'s';pascalLab.appendChild(b)}
- addLog('Tekanan Hidrostatis','ρ='+rhoV+' kg/m³; h='+hV+' m','Ph='+P.toLocaleString('id-ID')+' Pa');
-}
-function check(v){feedback.innerHTML=v===500?'<span class="ok">✓ Tepat! F₂ = (A₂/A₁)F₁ = 20×50 = 1000 N.</span>':'<span class="warn">Belum tepat. Gunakan F₁/A₁ = F₂/A₂.</span>'}
-function feedback2(v){feedback2.innerHTML=v?'<span class="ok">✓ Benar. Luas lebih kecil menghasilkan tekanan lebih besar jika gaya sama.</span>':'<span class="warn">Coba lagi. Ingat P = F/A.</span>'}
-function downloadCSV(){
- if(!logs.length){alert('Belum ada data eksperimen. Jalankan simulasi terlebih dahulu.');return}
- const esc=x=>'"'+String(x).replace(/"/g,'""')+'"';
- const csv='Waktu,Eksperimen,Variabel,Hasil\r\n'+logs.map(x=>[x.time,x.exp,x.vars,x.result].map(esc).join(',')).join('\r\n');
- const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
- const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='data-laboratorium-pascal-tekanan.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);
-}
+function runPascal(){const F1=+f1.value,A1=+a1.value,A2=+a2.value,P=F1/A1,F2=P*A2,mech=A2/A1;p1r.textContent=P.toFixed(2)+' N/cm²';f2r.textContent=F2.toFixed(2)+' N';mr.textContent=mech.toFixed(1)+'×';p1.style.transform='translateY(25px)';p2.style.transform='translateY(-25px)';setTimeout(()=>{p1.style.transform='';p2.style.transform=''},1000);addLog('Hukum Pascal','F₁='+F1+' N; A₁='+A1+' cm²; A₂='+A2+' cm²','P='+P.toFixed(2)+' N/cm²; F₂='+F2.toFixed(2)+' N')}
+function runPadat(){const F=+fp.value,A=+ap.value/100,P=F/A;fpr.textContent=F+' N';apr.textContent=A.toFixed(2)+' m²';ppr.textContent=P.toFixed(2)+' Pa';const scale=Math.min(1.8,Math.max(.55,Math.sqrt(P/2000)));solidPlate.style.transform='scaleY('+scale+')';addLog('Tekanan Padat','F='+F+' N; A='+A.toFixed(2)+' m²','P='+P.toFixed(2)+' Pa')}
+function runHydro(){const rhoV=+rho.value,hV=+h.value,g=9.8,P=rhoV*g*hV;rhor.textContent=rhoV.toLocaleString('id-ID')+' kg/m³';hr.textContent=hV+' m';phr.textContent=P.toLocaleString('id-ID')+' Pa';sensor.style.bottom=(22+hV*5)+'%';depthArrow.style.bottom=(20+hV*5)+'%';for(let i=0;i<5;i++){let b=document.createElement('div');b.className='bubble';b.style.left=(20+i*13)+'%';b.style.bottom='5%';b.style.animationDelay=(i*.3)+'s';hydroLab.appendChild(b)}addLog('Tekanan Hidrostatis','ρ='+rhoV+' kg/m³; h='+hV+' m','Ph='+P.toLocaleString('id-ID')+' Pa')}
+function check(v){feedback.innerHTML=v===1000?'<span class="ok">✓ Tepat! F₂ = (A₂/A₁)F₁ = 20×50 = 1000 N.</span>':'<span class="warn">Belum tepat. Gunakan F₁/A₁ = F₂/A₂.</span>'}
+function answerPressure(v){feedbackPressure.innerHTML=v?'<span class="ok">✓ Benar. Luas lebih kecil menghasilkan tekanan lebih besar jika gaya sama.</span>':'<span class="warn">Coba lagi. Ingat P = F/A.</span>'}
+function downloadCSV(){if(!logs.length){alert('Belum ada data eksperimen. Jalankan simulasi terlebih dahulu.');return}const esc=x=>'"'+String(x).replace(/"/g,'""')+'"';const csv='Waktu,Eksperimen,Variabel,Hasil\r\n'+logs.map(x=>[x.time,x.exp,x.vars,x.result].map(esc).join(',')).join('\r\n');const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='data-laboratorium-pascal-tekanan.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
 function clearData(){if(confirm('Hapus seluruh catatan eksperimen?')){logs.length=0;renderLog()}}
 sync();syncPadat();syncHydro();
 </script>
