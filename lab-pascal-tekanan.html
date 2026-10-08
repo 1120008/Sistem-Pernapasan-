@@ -31,7 +31,7 @@
 <div class="card"><h3>🔎 Pertanyaan investigasi</h3><p class="muted">Apakah memperbesar A₂ membuat F₂ lebih besar? Apakah tekanan P₁ dan P₂ tetap sama? Buat prediksi sebelum menjalankan eksperimen.</p></div></section>
 
 <section id="padat" class="view"><div class="grid">
-<div class="card controls"><h2>🧱 Eksperimen Tekanan Padat</h2><label>Gaya tekan F <span class="value" id="fpv">100 N</span></label><input id="fp" type="range" min="10" max="500" value="100" oninput="syncPadat()"><label>Luas bidang A <span class="value" id="apv">0.05 m²</span></label><input id="ap" type="range" min="1" max="100" value="5" oninput="syncPadat()"><button class="btn" style="width:100%;margin-top:14px" onclick="runPadat()">▶ Hitung Tekanan</button><div class="formula" style="margin-top:12px">P = F/A</div></div>
+<div class="card controls"><h2>🧱 Eksperimen Tekanan Padat</h2><p class="muted">Ubah luas bidang sentuh hingga <b>100 m²</b>. Amati hubungan luas permukaan dengan tekanan.</p><label>Gaya tekan F <span class="value" id="fpv">100 N</span></label><input id="fp" type="range" min="10" max="500" value="100" oninput="syncPadat()"><label>Luas bidang A <span class="value" id="apv">0.05 m²</span></label><input id="ap" type="range" min="1" max="10000" value="5" oninput="syncPadat()"><button class="btn" style="width:100%;margin-top:14px" onclick="runPadat()">▶ Hitung Tekanan</button><div class="formula" style="margin-top:12px">P = F/A</div></div>
 <div class="card"><div class="lab"><div class="plate" id="solidPlate" style="width:28%;height:20%;left:36%;bottom:25%"></div><div class="arrow" style="left:46%;top:17%">↓ F</div><div class="bench"></div></div><div class="readout"><div class="read">Gaya<b id="fpr">—</b></div><div class="read">Luas<b id="apr">—</b></div><div class="read">Tekanan<b id="ppr">—</b></div></div></div>
 </div></section>
 
@@ -48,7 +48,6 @@
 </div></section>
 <div class="foot">Laboratorium Maya Hukum Pascal & Tekanan • Media Pembelajaran IPA</div>
 </div>
-
 <script>
 const logs=[];const $=id=>document.getElementById(id);
 function show(id,btn){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.tabs .tab').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active')}
