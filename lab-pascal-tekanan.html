@@ -14,7 +14,7 @@
 <section class="hero"><span class="tag">🧪 LABORATORIUM MAYA IPA</span><h1>⚙️ Hukum Pascal, Tekanan & Bernoulli</h1><p class="muted">Eksperimen virtual: ubah variabel, prediksi hasil, jalankan simulasi, lalu analisis data seperti seorang ilmuwan.</p></section>
 <div class="tabs">
 <button class="tab active" onclick="show('pascal',this)">💧 Lab Pascal</button>
-<button class="tab" onclick="show('padat',this)">🧱 Tekanan Padat</button>
+<button class="tab" onclick="show('padat',this)">🧱 Tekanan Padat</button><button class="tab" onclick="show('luas',this)">📐 Rentang Luas</button>
 <button class="tab" onclick="show('hidro',this)">🌊 Tekanan Hidrostatis</button>
 <button class="tab" onclick="show('bernoulli',this)">💨 Bernoulli</button>
 <button class="tab" onclick="show('data',this)">📊 Data Eksperimen</button>
@@ -32,10 +32,19 @@
 <div class="card"><h3>🔎 Pertanyaan investigasi</h3><p class="muted">Apakah memperbesar A₂ membuat F₂ lebih besar? Apakah tekanan P₁ dan P₂ tetap sama? Buat prediksi sebelum menjalankan eksperimen.</p></div></section>
 
 <section id="padat" class="view"><div class="grid">
-<div class="card controls"><h2>🧱 Eksperimen Tekanan Padat</h2><p class="muted">Ubah luas bidang sentuh hingga <b>100 m²</b>. Amati hubungan luas permukaan dengan tekanan.</p><label>Gaya tekan F <span class="value" id="fpv">1.000 N</span></label><input id="fp" type="range" min="10" max="100000" step="100" value="1000" oninput="syncPadat()"><label>Luas bidang tekan <span class="value" id="apv">500 cm² = 0.05 m²</span></label><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><label for="apCm">Luas (cm²)</label><input id="apCm" type="number" min="1" max="1000000" step="1" value="500" oninput="syncAreaCm()"></div><div><label for="apM">Setara (m²)</label><input id="apM" type="number" min="0.0001" max="100" step="any" value="0.05" oninput="syncAreaM()"></div></div><input id="ap" type="range" min="1" max="1000000" value="500" oninput="syncAreaSlider()" aria-label="Luas bidang tekan dalam cm persegi"><button class="btn" style="width:100%;margin-top:14px" onclick="runPadat()">▶ Hitung Tekanan</button><div class="formula" style="margin-top:12px">P = F/A</div></div>
+<div class="card controls"><h2>🧱 Eksperimen Tekanan Padat</h2><p class="muted">Ubah luas bidang sentuh hingga <b>100 m²</b>. Amati hubungan luas permukaan dengan tekanan.</p><label>Gaya tekan F <span class="value" id="fpv">1.000 N</span></label><input id="fp" type="range" min="10" max="100000" step="10" value="1000" oninput="syncPadat()"><label>Luas bidang tekan <span class="value" id="apv">500 cm² = 0.05 m²</span></label><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><label for="apCm">Luas (cm²)</label><input id="apCm" type="number" min="0.01" max="1000000" step="0.01" value="500" oninput="syncAreaCm()"></div><div><label for="apM">Setara (m²)</label><input id="apM" type="number" min="0.0001" max="100" step="any" value="0.05" oninput="syncAreaM()"></div></div><input id="ap" type="range" min="0" max="10000" step="1" value="4698" oninput="syncAreaSlider()" aria-label="Luas bidang tekan skala logaritmik"><button class="btn" style="width:100%;margin-top:14px" onclick="runPadat()">▶ Hitung Tekanan</button><div class="formula" style="margin-top:12px">P = F/A</div></div>
 <div class="card"><div class="lab"><div class="plate" id="solidPlate" style="width:28%;height:20%;left:36%;bottom:25%"></div><div class="arrow" style="left:46%;top:17%">↓ F</div><div class="bench"></div></div><div class="readout"><div class="read">Gaya<b id="fpr">—</b></div><div class="read">Luas<b id="apr">—</b></div><div class="read">Tekanan<b id="ppr">—</b></div></div></div>
 </div></section>
 
+
+<section id="luas" class="view"><div class="grid">
+<div class="card controls"><h2>📐 Pengaturan Rentang Luas</h2><p class="muted">Tab ini mengatur luas bidang tekan yang juga digunakan pada eksperimen Tekanan Padat. Rentang dari <b>0,01 cm²</b> hingga <b>100 m²</b>.</p>
+<label>Luas bidang (cm²)</label><input id="areaTabCm" type="number" min="0.01" max="1000000" step="0.01" value="500" oninput="setAreaFromTabCm()">
+<label>Konversi luas (m²)</label><input id="areaTabM" type="number" min="0.000001" max="100" step="any" value="0.05" oninput="setAreaFromTabM()">
+<label>Rentang luas — skala logaritmik <span class="value" id="areaRangeLabel">500 cm²</span></label><input id="areaLog" type="range" min="0" max="10000" step="1" value="4698" oninput="setAreaFromLog()">
+<button class="btn" style="width:100%;margin-top:14px" onclick="show('padat',document.querySelector('.tabs button[onclick*=padat]'))">Kembali ke Tekanan Padat</button>
+</div><div class="card"><h2>🔁 Konversi Satuan</h2><div class="formula">1 m² = 10.000 cm²</div><p class="muted">Untuk mengubah cm² menjadi m², bagi nilai cm² dengan 10.000. Untuk mengubah m² menjadi cm², kalikan dengan 10.000.</p><div class="readout"><div class="read">Luas (cm²)<b id="areaTabOutCm">500</b></div><div class="read">Luas (m²)<b id="areaTabOutM">0,05</b></div><div class="read">Rentang<b>0,01 cm²–100 m²</b></div></div></div>
+</div></section>
 <section id="hidro" class="view"><div class="grid">
 <div class="card controls"><h2>🌊 Eksperimen Hidrostatis</h2><label>Massa jenis cairan ρ <span class="value" id="rhov">1000 kg/m³</span></label><select id="rho" onchange="syncHydro()"><option value="1000">Air — 1000 kg/m³</option><option value="800">Minyak — 800 kg/m³</option><option value="13600">Raksa — 13.600 kg/m³</option></select><label>Kedalaman h <span class="value" id="hv">1 m</span></label><input id="h" type="range" min="1" max="10" value="1" oninput="syncHydro()"><button class="btn" style="width:100%;margin-top:14px" onclick="runHydro()">▶ Jalankan Eksperimen</button><div class="formula" style="margin-top:12px">P<sub>h</sub> = ρgh</div></div>
 <div class="card"><div class="lab" id="hydroLab" style="background:linear-gradient(#0b2b3e,#021827)"><div class="water" style="height:88%"></div><div class="plate" id="sensor" style="width:18%;height:9%;left:41%;bottom:30%"></div><div class="arrow" id="depthArrow" style="left:65%;bottom:28%">h</div></div><div class="readout"><div class="read">ρ<b id="rhor">—</b></div><div class="read">h<b id="hr">—</b></div><div class="read">Tekanan hidrostatis<b id="phr">—</b></div></div></div>
@@ -74,7 +83,18 @@
 const logs=[];const $=id=>document.getElementById(id);
 function show(id,btn){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.tabs .tab').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active')}
 function sync(){f1v.textContent=Number(f1.value).toLocaleString('id-ID')+' N';a1v.textContent=(a1.value/100).toLocaleString('id-ID',{maximumFractionDigits:2})+' m²';a2v.textContent=(a2.value/100).toLocaleString('id-ID',{maximumFractionDigits:2})+' m²'}
-function syncPadat(){fpv.textContent=Number(fp.value).toLocaleString('id-ID')+' N';updateAreaLabel()}\nfunction fmtArea(m2){return m2.toLocaleString('id-ID',{maximumFractionDigits:4})}\nfunction updateAreaLabel(){const cm2=Number(ap.value);const m2=cm2/10000;apCm.value=cm2;apM.value=m2;apv.textContent=cm2.toLocaleString('id-ID')+' cm² = '+fmtArea(m2)+' m²'}\nfunction syncAreaCm(){let v=Number(apCm.value);if(!Number.isFinite(v)||v<1)return;v=Math.min(1000000,Math.round(v));ap.value=v;apM.value=v/10000;apv.textContent=v.toLocaleString('id-ID')+' cm² = '+fmtArea(v/10000)+' m²'}\nfunction syncAreaM(){let v=Number(apM.value);if(!Number.isFinite(v)||v<=0)return;v=Math.min(100,Math.max(.0001,v));const cm2=Math.min(1000000,Math.max(1,Math.round(v*10000)));ap.value=cm2;apCm.value=cm2;apv.textContent=cm2.toLocaleString('id-ID')+' cm² = '+fmtArea(cm2/10000)+' m²'}\nfunction syncAreaSlider(){updateAreaLabel()}
+function syncPadat(){fpv.textContent=Number(fp.value).toLocaleString('id-ID')+' N';updateAreaLabel()}
+function fmtArea(m2){return m2.toLocaleString('id-ID',{maximumFractionDigits:6})}
+function areaCmValue(){return Number(ap.value)}
+function setAreaCmValue(v){v=Math.min(1000000,Math.max(.01,Number(v)||.01));ap.value=String(v);apCm.value=v;apM.value=v/10000;areaTabCm.value=v;areaTabM.value=v/10000;const logPos=Math.round(Math.log10(v/.01)/Math.log10(1000000/.01)*10000);apLogSync(logPos);apv.textContent=v.toLocaleString('id-ID',{maximumFractionDigits:2})+' cm² = '+fmtArea(v/10000)+' m²';areaTabOutCm.textContent=v.toLocaleString('id-ID',{maximumFractionDigits:2});areaTabOutM.textContent=fmtArea(v/10000);areaRangeLabel.textContent=v.toLocaleString('id-ID',{maximumFractionDigits:2})+' cm²'}
+function apLogSync(pos){ap.value=pos;areaLog.value=pos}
+function updateAreaLabel(){setAreaCmValue(areaCmValue())}
+function syncAreaCm(){setAreaCmValue(apCm.value)}
+function syncAreaM(){setAreaCmValue(Number(apM.value)*10000)}
+function syncAreaSlider(){const v=.01*Math.pow(1000000/.01,Number(ap.value)/10000);setAreaCmValue(v)}
+function setAreaFromTabCm(){setAreaCmValue(areaTabCm.value)}
+function setAreaFromTabM(){setAreaCmValue(Number(areaTabM.value)*10000)}
+function setAreaFromLog(){const v=.01*Math.pow(1000000/.01,Number(areaLog.value)/10000);setAreaCmValue(v)}
 function syncHydro(){rhov.textContent=Number(rho.value).toLocaleString('id-ID')+' kg/m³';hv.textContent=h.value+' m'}
 function syncBernoulli(){v1v.textContent=v1.value+' m/s';ba1v.textContent=(ba1.value/100).toLocaleString('id-ID',{maximumFractionDigits:2})+' m²';ba2v.textContent=(ba2.value/100).toLocaleString('id-ID',{maximumFractionDigits:2})+' m²';brhov.textContent=Number(brho.value).toLocaleString('id-ID')+' kg/m³'}
 function addLog(exp,vars,result){logs.unshift({time:new Date().toLocaleString('id-ID'),exp,vars,result});renderLog()}
@@ -87,7 +107,7 @@ function check(v){feedback.innerHTML=v===1000?'<span class="ok">✓ Tepat! F₂ 
 function answerPressure(v){feedbackPressure.innerHTML=v?'<span class="ok">✓ Benar. Luas lebih kecil menghasilkan tekanan lebih besar jika gaya sama.</span>':'<span class="warn">Coba lagi. Ingat P = F/A.</span>'}
 function downloadCSV(){if(!logs.length){alert('Belum ada data eksperimen. Jalankan simulasi terlebih dahulu.');return}const esc=x=>'"'+String(x).replace(/"/g,'""')+'"';const csv='Waktu,Eksperimen,Variabel,Hasil\r\n'+logs.map(x=>[x.time,x.exp,x.vars,x.result].map(esc).join(',')).join('\r\n');const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='data-laboratorium-pascal-tekanan.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
 function clearData(){if(confirm('Hapus seluruh catatan eksperimen?')){logs.length=0;renderLog()}}
-sync();syncPadat();syncHydro();syncBernoulli();
+sync();syncPadat();syncHydro();syncBernoulli();setAreaCmValue(500);
 </script>
 </body>
 </html>
